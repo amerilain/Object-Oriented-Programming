@@ -1,0 +1,5 @@
+Absolute Path: "/Users/amerilain/Documents/ICT_docs/2nd_year/Object_Oriented_Programming/Exercises/solutions/2e.2/cmake-build-debug/metro/polia/university/result.txt"
+metro
+polia
+university
+Relative Path: "metro/polia/university"
