@@ -1,84 +1,86 @@
 #include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
-#include <string>
-#include <limits>
 
+using namespace std;
 class House {
 private:
-    std::string address;
+    string address;
     double area;
     int price;
 
 public:
-    explicit House(std::string addr = "", double ar = 0.0, int pr = 0) : address(addr), area(ar), price(pr) {}
+    House() : area(0.0), price(0) {}
+    House(string addr, double ar, int pr) : address(std::move(addr)), area(ar), price(pr) {}
 
-    void setAddress(const std::string& addr) { address = addr; }
+    void setAddress(const string& addr) { address = addr; }
     void setArea(double ar) { area = ar; }
     void setPrice(int pr) { price = pr; }
 
-    friend std::ostream& operator<<(std::ostream& os, const House& h);
-    friend std::istream& operator>>(std::istream& is, House& h);
-    bool operator<(const House& other) const;
+    [[nodiscard]] double getPricePerSquareMeter() const {
+        return price / area;
+    }
+
+    friend ostream& operator<<(ostream& os, const House& house);
+    friend istream& operator>>(istream& is, House& house);
+    friend bool operator<(const House& lhs, const House& rhs);
 };
 
-std::ostream& operator<<(std::ostream& os, const House& h) {
-    os << "Address: " << h.address << ", Area: " << h.area << " m², Price: " << h.price << " euros";
-    return os;
+ostream& operator<<(ostream& os, const House& house) {
+    os << house.address << ", " << house.area << ", " << house.price ; return os;
 }
 
-std::istream& operator>>(std::istream& is, House& h) {
-    std::cout << "Address: ";
-    is.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear any leftover input
-    std::getline(is, h.address);
-    std::cout << "Area: ";
-    is >> h.area;
-    std::cout << "Price: ";
-    is >> h.price;
-    is.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear the input buffer
+istream& operator>>(istream& is, House& house) {
+    getline(is, house.address, ','); // Using comma as delimiter
+    is >> house.area;
+    is.ignore();
+    is >> house.price;
     return is;
 }
 
-bool House::operator<(const House& other) const {
-    return (price / area) < (other.price / other.area);
+bool operator<(const House& lhs, const House& rhs) {
+    return lhs.getPricePerSquareMeter() < rhs.getPricePerSquareMeter();
 }
 
 int main() {
-    std::vector<House> houses;
-    std::string addr;
+    vector<House> houses;
+    string line;
+    string address;
     double area;
     int price;
 
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    // Using parameterized constructor for house 1
-    std::cout << "Enter details for house 1:\n";
-    std::cout << "Address: ";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear buffer
-    std::getline(std::cin, addr); // Read address with spaces
-    std::cout << "Area: ";
-    std::cin >> area;
-    std::cout << "Price: ";
-    std::cin >> price;
-    houses.emplace_back(addr, area, price);
+    cout << "Enter information for house 1 (address, area, price): ";
+    getline(cin, address, ',');
+    cin >> area;
+    cin.ignore();
+    cin >> price;
+    houses.emplace_back(address, area, price);
 
-    // Repeat the same for other houses
-    for (int i = 2; i <= 5; ++i) {
-        std::cout << "Enter details for house " << i << ":\n";
-        std::cout << "Address: ";
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear buffer
-        std::getline(std::cin, addr); // Read address with spaces
-        std::cout << "Area: ";
-        std::cin >> area;
-        std::cout << "Price: ";
-        std::cin >> price;
-        houses.emplace_back(addr, area, price);
+
+    House house2;
+    cout << "Enter information for house 2 (address, area, price): ";
+    getline(cin, address, ',');
+    cin >> area;
+    cin.ignore();
+    cin >> price;
+    house2.setAddress(address);
+    house2.setArea(area);
+    house2.setPrice(price);
+    houses.push_back(house2);
+
+    // Houses 3 to 5
+    for (int i = 3; i <= 5; ++i) {
+        House house;
+        cout << "Enter information for house " << i << " (address, area, price): ";
+        cin >> house;
+        houses.push_back(house);
     }
 
-    // Sort and display houses
-    std::sort(houses.begin(), houses.end());
-    std::cout << "\nSorted Houses:\n";
-    for (const auto& h : houses) {
-        std::cout << h << '\n';
+    // Sorting and outputting the houses
+    sort(houses.begin(), houses.end());
+    for (const auto& house : houses) {
+        cout << house << endl;
     }
 
     return 0;

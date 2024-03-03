@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "6e",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "6e::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-6e-Release-6b758fd64adc7a2ca32d.json",
+					"name" : "6e",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/amerilain/Documents/ICT_docs/2nd_year/Object_Oriented_Programming/Exercises/solutions/Object-Oriented-Programming/6e/cmake-build-release",
+		"source" : "/Users/amerilain/Documents/ICT_docs/2nd_year/Object_Oriented_Programming/Exercises/solutions/Object-Oriented-Programming/6e"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

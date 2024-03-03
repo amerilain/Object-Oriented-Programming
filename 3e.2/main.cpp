@@ -5,43 +5,45 @@ int runAvgSize = 5;
 
 class RunningAverage {
     public:
-        explicit RunningAverage(int size) : maxSize(size) {}
-        void add_value(int value);
+        explicit RunningAverage(int size) : maxSize(size), sum(0) {}
+        void add_value(double value);
         double get_average();
 
     private:
-        std::deque<int> values;
+        std::deque<double> values;
         int maxSize;
+        double sum;
 };
 
-void RunningAverage::add_value(int value) {
+void RunningAverage::add_value(double value) {
     values.push_back(value);
+    sum += value;
     if (values.size() > maxSize) {
+        sum -= values.front();
         values.pop_front();
     }
 }
 
 double RunningAverage::get_average() {
     if (values.empty()) return 0.0;
-    double sum = 0.0;
-    for (int value : values) {
-        sum += value;
-    }
     return sum / values.size();
 }
 
 int main() {
-    RunningAverage avg(runAvgSize); // Instance for running average of the last 5 numbers
-    int number;
+    RunningAverage avg(runAvgSize);
+    double number;
+    bool stop = false;
 
-    while (true) {
+    while (!stop) {
         std::cout << "Enter a number (0 to stop): ";
         std::cin >> number;
 
-        if (number == 0) break;
-
-        avg.add_value(number);
-        std::cout << "Current Running Average: " << avg.get_average() << std::endl;
+        if (number == 0) {
+            stop = true;
+        } else {
+            avg.add_value(number);
+            std::cout << "Current Running Average: " << avg.get_average() << std::endl;
+        }
     }
 
     std::cout << "Final Running Average: " << avg.get_average() << std::endl;

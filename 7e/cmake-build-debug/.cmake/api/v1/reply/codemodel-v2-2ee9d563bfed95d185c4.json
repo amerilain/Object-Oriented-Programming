@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "7e",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "7e::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-7e-Debug-026335b23824ce71ebee.json",
+					"name" : "7e",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/amerilain/Documents/ICT_docs/2nd_year/Object_Oriented_Programming/Exercises/solutions/Object-Oriented-Programming/7e/cmake-build-debug",
+		"source" : "/Users/amerilain/Documents/ICT_docs/2nd_year/Object_Oriented_Programming/Exercises/solutions/Object-Oriented-Programming/7e"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

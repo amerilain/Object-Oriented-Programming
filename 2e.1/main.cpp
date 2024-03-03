@@ -23,7 +23,7 @@ int main() {
                 sum += num;
                 count++;
             }
-            // print the sum and count of the integers (example: "Total of 6 numbers is 129")
+            // print the sum and count of the integers
             cout << "Total of " << count << " numbers is " << sum << endl;
 
         }
