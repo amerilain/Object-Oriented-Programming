@@ -5,14 +5,16 @@
 class Observer;
 class Subject {
 public:
-    virtual void Attach(Observer *o) = 0;
+    virtual void Attach(Observer *o) = 0; // Set
     virtual void Notify() = 0;
 };
 
+// Abstract interface of observer
 class Observer {
 public:
     virtual void Update() = 0;
 };
+
 
 class Person {
 public:
@@ -50,7 +52,7 @@ public:
 private:
     std::string alias;
     int resistance;
-    Observer* observer;
+    Observer *observer;
 };
 
 Spy::Spy(const char *name, const char *alias, int resistance)
@@ -95,7 +97,7 @@ public:
 Judge::Judge(const char *name) : Person(name) {}
 
 void Judge::Update() {
-    std::cout << "My name is: " << getName() << std::endl;
+    identity();
     std::cout << "I'm sending a spy to prison!" << std::endl;
 }
 
@@ -104,7 +106,6 @@ int main() {
     Spy spy("Emilio Largo", "William Johnson", 3);
     Spy spy2("Ernst Blofield", "John Keats", 5);
     Judge judge("Judge Barnhill");
-
     spy.Attach(&judge);
     spy2.Attach(&judge);
 

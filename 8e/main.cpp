@@ -1,14 +1,17 @@
 #include <iostream>
+
 using namespace std;
 
 class Counter {
 public:
     virtual void inc() = 0;
+
     virtual void dec() = 0;
+
     virtual operator int() = 0;
+
     virtual ~Counter() {};
 };
-
 
 
 class LimitedCounter : public Counter {
@@ -63,7 +66,7 @@ public:
 };
 
 // you need to implement this function
-void UseCounter(Counter& ctr, int num) {
+void UseCounter(Counter &ctr, int num) {
     if (num > 0) {
         for (int i = 0; i < num; i++) {
             ctr.inc();
@@ -76,9 +79,7 @@ void UseCounter(Counter& ctr, int num) {
 }
 
 
-
-
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     LimitedCounter lc(0, 5);
     OverflowCounter oc(5, 9);
 
@@ -95,7 +96,7 @@ int main(int argc, char** argv) {
     cout << lc << endl;
     lc.dec();
     cout << lc << endl;
-    for(int i = 0; i < 10; ++i) lc.inc();
+    for (int i = 0; i < 10; ++i) lc.inc();
     cout << lc << endl;
     UseCounter(lc, -9);
     cout << lc << endl;
