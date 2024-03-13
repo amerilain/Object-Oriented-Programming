@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "lab12",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "lab12::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab12-e7f9eb9631b6e6e40302.json",
+					"name" : "lab12",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/amerilain/Documents/ICT_docs/2nd_year/Object_Oriented_Programming/Exercises/solutions/Object-Oriented-Programming/12e/cmake-build-12e",
+		"source" : "/Users/amerilain/Documents/ICT_docs/2nd_year/Object_Oriented_Programming/Exercises/solutions/Object-Oriented-Programming/12e"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
